@@ -18,10 +18,10 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, getComputerChoice) {
-    let tieResult = 'Tie';
-    let loseResult = 'Lose';
-    let winResult = 'Win'
-    console.log(playerSelection,getComputerChoice)
+    let tieResult = 'tie';
+    let loseResult = 'lose';
+    let winResult = 'win'
+
     if(playerSelection.toLowerCase() == getComputerChoice.toLowerCase())
     {
         return tieResult
@@ -39,11 +39,43 @@ function playRound(playerSelection, getComputerChoice) {
 
 
 
-function game() {
-    for (let i = 0;i <5; i++) {
+function game(playerChoice) {
+    //alert(playerChoice)
+    let playerScore = document.getElementById('playerScore')
+    //alert(playerScore.innerHTML)
+    let computerScore = document.getElementById('computerScore')
+    //alert(computerScore.innerHTML)
+    let result = document.getElementById('result')
+    
+    let roundResult = playRound(playerChoice,getComputerChoice())
+    if(roundResult == 'win')
+    {
+        var score = Number(playerScore.innerHTML) + 1
+        playerScore.innerHTML = score;
+        if(score < 5) {
+            result.innerHTML = "You win!"
+        }
+        else 
+            result.innerHTML = "Player Wins!"
+    }
+    else if(roundResult == 'lose')
+    {
+        var score = Number(computerScore.innerHTML) + 1
+        computerScore.innerHTML = score;
+        if(score < 5) {
+            result.innerHTML = "You lose!"
+        }
+        else 
+            result.innerHTML = "Computer Wins!"
+    }
+    else {
+        result.innerHTML = "Tie"
+    }
+
+    
+    /*for (let i = 0;i <5; i++) {
         console.log('Round: ' + (i + 1).toString())
         let playerChoice = prompt("Rock, Paper or Scissors").toLowerCase()
         console.log(playRound(playerChoice,getComputerChoice()))
-    }
+    }*/
 }
-game();

@@ -1,0 +1,12 @@
+.button {
+    background-color: rgb(120, 120, 218);
+    border-radius:5px;
+    color:white;
+    height:50px;
+    width:150px;
+    cursor: pointer;
+}
+
+.choices-container {
+    margin-top:10px;
+}
